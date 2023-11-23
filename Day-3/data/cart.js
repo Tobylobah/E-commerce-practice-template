@@ -1,5 +1,15 @@
-// Initialize an empty shopping cart array.
-export const cart = [];
+
+export const cart = [{
+  productId:'product_1',
+  quantity:2,
+},
+  {
+    productId:'product_1',
+    quantity:2,
+  }
+
+
+];
 
 
 export function addToCart(productId) {

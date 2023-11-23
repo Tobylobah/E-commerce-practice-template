@@ -79,22 +79,20 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
         .innerHTML = cartQuantity;//changes the innerHTML of the class name "js-cart-quantity to from 0 to the updated cart quantity"
 
     }
-document.querySelectorAll('.js-add-to-cart')
-  .forEach((button) => {
-    // Add click event listeners to each 'Add to Cart' button.
-    button.addEventListener('click', () => {
-      const productId = button.dataset.productId;
-      addToCart(productId); 
-      updateCartQuantity();
-      const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-      
-      if (quantitySelector) {
-        const quantity = Number(quantitySelector.value);//converts the numbers in form of strings selected to numbers
-
-      //the code below handles the cart updates
-    
-
-    }
-  });
-  });
+    document.querySelectorAll('.js-add-to-cart')
+    .forEach((button) => {
+      // Add click event listeners to each 'Add to Cart' button.
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+        
+        if (quantitySelector) {
+          const quantity = Number(quantitySelector.value);
+  
+          addToCart(productId, quantity);  // Pass quantity to addToCart function
+          updateCartQuantity();
+        }
+      });
+    });
+  
 
